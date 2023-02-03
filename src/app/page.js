@@ -5,6 +5,7 @@ import styles from './page.module.css'
 import axios from "axios";
 import { useState } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
+import Answers from '../components/Answers';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -64,7 +65,11 @@ export default function Home() {
         
         {isLoading ? <LoadingSpinner /> : <p>{currentQue}</p>}
         <br />
-        <p className={styles.p}>{ans.answer}</p>
+        <Answers text={ans.answer}/>
+        <br />
+        {/* <div>
+          {ans.response_elapsed_time ? <p>Time taken:{Math.round(ans.response_elapsed_time)+""}s</p> : ''}
+        </div> */}
       </div>
     </main>
   )
